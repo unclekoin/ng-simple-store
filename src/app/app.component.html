@@ -1,6 +1,6 @@
 <app-global-error></app-global-error>
 
-<div class="container max-w-2xl mx-auto pt-7 px-2">
+<div class="container max-w-2xl mx-auto py-7 px-2">
   <h1 class="font-bold mb-7 text-center text-xl">{{ title | titlecase }}</h1>
 
   <input
@@ -12,15 +12,22 @@
 
   <p *ngIf="loading" class="text-center text-lg">Loading...</p>
 
-  <div *ngIf="products$ | async as products">
+  <div *ngIf="productService.products">
     <app-product
-      *ngFor="let product of products | filterProducts: term; let i = index"
+      *ngFor="let product of productService.products | filterProducts: term; let i = index"
       [product]="product"
     >
     </app-product>
   </div>
 
-  <app-modal title="create new product">
+  <app-modal *ngIf="modalService.isVisible$ | async" title="create new product">
     <app-create-product></app-create-product>
   </app-modal>
+
+  <button
+    (click)="modalService.open()"
+    class="fixed bottom-5 right-5 py-2 px-4 bg-red-500 text-white rounded-full shadow-md"
+  >
+    +
+  </button>
 </div>

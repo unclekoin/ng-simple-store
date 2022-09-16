@@ -4,8 +4,8 @@
     <h2 class="mb-3 mx-auto text-lg font-bold">{{ product.title }}</h2>
     <div *ngIf="details" class="mb-5">
       <p class="mb-3">{{ product.description }}</p>
-      <p>
-        Rating: <span class="font-bold">{{ product.rating.rate | number: '1.2-4' }}</span>
+      <p *ngIf="product.rating?.rate">
+        Rating: <span class="font-bold">{{ product.rating?.rate | number: '1.2-4' }}</span>
       </p>
     </div>
     <p class="mb-2">

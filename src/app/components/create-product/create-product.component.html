@@ -1,6 +1,7 @@
 <form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col">
   <input
     formControlName="title"
+    appFocus
     class="w-full mb-1 py-2 px-4 border rounded-md"
     type="text"
     placeholder="Product name"

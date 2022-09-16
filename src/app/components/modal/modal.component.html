@@ -1,7 +1,10 @@
-<div class="fixed top-0 bottom-0 left-0 right-0 bg-black/50"></div>
+<div
+  (click)="modalService.close()"
+  class="fixed top-0 bottom-0 left-0 right-0 bg-black/50">
+</div>
 
 <div
-  class="absolute top-1/4 p-6 left-1/2 -translate-x-1/2 max-w-[600px] w-full bg-white rounded-md"
+  class="fixed top-1/4 p-6 left-1/2 -translate-x-1/2 max-w-[600px] w-full bg-white rounded-md"
 >
   <h1 class="mb-4 text-lg text-center">{{ title | titlecase }}</h1>
   <ng-content></ng-content>
