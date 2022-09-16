@@ -10,6 +10,7 @@ import { ProductService } from './services/product.service';
 })
 export class AppComponent implements OnInit {
   title = 'online store';
+  term = '';
   // products: IProduct[] = [];
   products$: Observable<IProduct[]>;
   loading = false;
