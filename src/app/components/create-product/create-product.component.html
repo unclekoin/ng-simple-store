@@ -1,0 +1,19 @@
+<form [formGroup]="form" (ngSubmit)="submit()" class="flex flex-col">
+  <input
+    formControlName="title"
+    class="w-full mb-1 py-2 px-4 border rounded-md"
+    type="text"
+    placeholder="Product name"
+  />
+
+  <p *ngIf="title.errors?.['minlength'] && title.touched" class="pl-2 text-sm text-red-400">
+    The minimum length of the field must be 6 characters
+  </p>
+
+  <button
+    class="mt-2 py-2 px-6 text-white bg-blue-600 rounded-md shadow-md self-end"
+    type="submit"
+  >
+    Create
+  </button>
+</form>
