@@ -1,0 +1,29 @@
+<div class="mb-4 py-4 px-6 border rounded flex items-center shadow-md">
+  <img class="w-1/4 mb-2 mr-6" [src]="product.image" [alt]="product.title" />
+  <div class="w-full">
+    <h2 class="mb-3 mx-auto text-lg font-bold">{{ product.title }}</h2>
+    <div *ngIf="details" class="mb-5">
+      <p class="mb-3">{{ product.description }}</p>
+      <p>
+        Rating: <span class="font-bold">{{ product.rating.rate | number: '1.2-4' }}</span>
+      </p>
+    </div>
+    <p class="mb-2">
+      Price:
+      <span class="font-bold">{{ product.price | currency: "&#163;" }}</span>
+    </p>
+    <div class="w-full flex justify-end mb-2">
+      <button
+        (click)="details = !details"
+        class="px-3 py-2 rounded-md shadow-md"
+        [ngClass]="{
+          'bg-sky-500': !details,
+          'text-slate-50': !details,
+          'bg-yellow-400': details
+        }"
+      >
+        {{ details ? "Hide" : "Show" }} Details
+      </button>
+    </div>
+  </div>
+</div>
